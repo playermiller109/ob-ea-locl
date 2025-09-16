@@ -1,0 +1,100 @@
+# Settings - Actions - Workflow permissions should be set to Read and write
+name: Sync External
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+  schedule:
+    - cron: '15 4 * * *'
+
+env:
+  THIS_REPO: 'playermiller109/ob-ea-trans'
+  TARGET_REPO: 'zsviczian/obsidian-excalidraw-plugin'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  sync-ea:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+        fetch-depth: 0
+
+    - name: GitHub API
+      run: |
+        echo API_U='https://api.github.com/repos/$TARGET_REPO' >> $GITHUB_ENV
+        echo TGT_U='https://github.com/$TARGET_REPO' >> $GITHUB_ENV
+        git config user.name "GitHub Actions"
+        git config user.email "actions@users.noreply.github.com"
+
+    - name: Environment
+      run: |
+        TIME=$(TZ='Asia/Shanghai' date +'%Y%m%d %H:%M')
+        echo "TIME=$TIME" >> $GITHUB_ENV
+
+        INPUT_TAG=${{inputs.tag}}
+        TAG=${INPUT_TAG:-$(curl -s "${{env.API_U}}/tags" | jq -r '.[8].name')}
+        echo "::notice::Fetched TAG is ${TAG}."
+        if [[ -z "$TAG" || "$TAG" == "null" ]]; then
+          exit 1
+        fi
+        echo "TAG=$TAG" >> $GITHUB_ENV
+
+        SKIP='!1'
+        last_tag=$(git log -1 --pretty=%B | sed 's/|.*//' | xargs)
+        if [ "$last_tag" = "$TAG" ]; then
+          SKIP='!0'
+          echo "::notice::Already latest."
+          git reset --soft HEAD^
+        fi
+        echo "SKIP=$SKIP" >> $GITHUB_ENV
+
+    - name: Maintain output files
+      if: env.SKIP == '!1'
+      run: |
+        LANG_U="${{env.TGT_U}}/raw/${{env.TAG}}/src/lang/locale"
+        for file in "zh-cn.ts" "en.ts"; do
+          curl -L -o "upstream/${file}" "${LANG_U}/${file}"
+        done
+
+        # git submodule update --remote -f personal
+
+        node upstream/extractKeys.js
+
+        git add upstream/**
+        if ! git diff --cached --quiet; then
+          git commit -m "${{env.TAG}}"
+        fi
+
+    - name: Update README.md
+      if: env.SKIP == '!1'
+      run: |
+        TEMP_FILE="${{env.TAG}}.txt"
+        printf "
+        ${{env.TAG}} | HEAD
+        <a href=\"${{env.TGT_U}}/releases/download/${{env.TAG}}/main.js\">main.js</a>
+        <a href=\"${{env.TGT_U}}/releases/download/${{env.TAG}}/styles.css\">styles.css</a>
+        " > "$TEMP_FILE"
+        sed -i '3,$d' README.md
+        cat README.md $TEMP_FILE > combined.md
+        mv combined.md README.md
+
+    - name: Commit last check
+      run: |
+        git add README.md
+        git commit -m "${{env.TAG}} | HEAD ${{env.TIME}}"
+
+    - name: Release
+      run: |
+        git push origin main -f
+        exit 0
+        git tag ${{env.TAG}} -f
+        git push origin ${{env.TAG}} -f
+
+        if [ "${{env.SKIP}}" == '!1' ]; then
+          # Needed for weird ERROR (Cannot read properties of null (reading 'debug'))
+          NODE_DEBUG=release-it:* \
+          npx release-it --no-increment --no-git >/dev/null 2>&1
+        fi
