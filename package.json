@@ -1,0 +1,9 @@
+{
+  "author": "playermiller109",
+  "devDependencies": {
+    "terser": "^5.47.1",
+    "acorn": "^8.16.0",
+    "lz-string": "^1.5.0",
+    "opencc-wasm": "^0.8.2"
+  }
+}
