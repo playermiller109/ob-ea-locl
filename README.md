@@ -3,9 +3,9 @@
 
   [zsviczian](https://github.com/zsviczian/obsidian-excalidraw-plugin/releases)
   | [twp.json](https://opencc.js.org/converter?config=s2twp)
-  | <>
-  <a href="https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/download/<>/main.js">main.js</a>
-  <a href="https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/download/<>/styles.css">styles.css</a>
+  | 2.25.3
+  <a href="https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/download/2.25.3/main.js">main.js</a>
+  <a href="https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/download/2.25.3/styles.css">styles.css</a>
 </div>
 
 ```js
