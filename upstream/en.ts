@@ -996,7 +996,7 @@ export default {
     "drawings created in dark mode will appear as they would in light mode.",
   EXPORT_EMBED_SCENE_NAME: "Embed scene in exported image",
   EXPORT_EMBED_SCENE_DESC:
-    "Embed Excalidraw scene in exported image. Can be overridden at a file level by adding the <code>excalidraw-export-embed-scene: true/false<code> frontmatter key. " +
+    "Embed Excalidraw scene in exported image. Can be overridden at a file level by adding the <code>excalidraw-export-embed-scene: true/false</code> frontmatter key. " +
     "The setting only takes effect the next time you (re)open drawings.",
   PDF_EXPORT_SETTINGS: "PDF Export Settings",
   EXPORT_HEAD: "Auto-export Settings",
@@ -1203,10 +1203,6 @@ export default {
   SELECT_TO_EMBED: "Select the drawing to insert into active document.",
   SELECT_MD: "Select the markdown document you want to insert",
 
-  //ToolsPanel.tsx
-  TASKBON_NOT_ENABLED:
-    "Taskbone OCR is not enabled. Please go to plugins settings to enable it.",
-
   //SelectCard.ts
   TYPE_SECTION: "Type section name to select.",
   SELECT_SECTION_OR_TYPE_NEW:
@@ -1228,7 +1224,7 @@ export default {
     "Error opening the Excalidraw Script Store page. " +
     "Please double check that you can access the website. " +
     "I've logged the link in developer console (press CTRL+SHIFT+i)",
-  SCRIPT_INSTALL_PROMPT_OPEN_ERROR: "Could not open ScriptEngine repository",
+  SCRIPT_INSTALL_PROMPT_OPEN_ERROR: "Could not open Script Engine repository",
 
   //ExcalidrawViewUtils.ts
   MARKER_FRAME_RENDERING_DISABLED_NOTICE:
