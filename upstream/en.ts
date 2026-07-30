@@ -106,12 +106,6 @@ export default {
   MARKDOWN_IMAGE_FONT_COLOR: "Font color",
   MARKDOWN_IMAGE_BORDER: "Border",
   MARKDOWN_IMAGE_BORDER_COLOR: "Border color",
-  MARKDOWN_IMAGE_THEME: "Theme",
-  MARKDOWN_IMAGE_THEME_DESC:
-    "Controls theme-sensitive content such as code blocks, tables, links, and callouts.",
-  MARKDOWN_IMAGE_MATCH_CANVAS: "Match canvas",
-  MARKDOWN_IMAGE_LIGHT: "Light",
-  MARKDOWN_IMAGE_DARK: "Dark",
   MARKDOWN_IMAGE_CSS: "CSS",
   MARKDOWN_IMAGE_CSS_DESC: "CSS rules applied only to this Markdown image.",
   MARKDOWN_IMAGE_CSS_IMPORTANT_HINT:
@@ -141,6 +135,7 @@ export default {
   MARKDOWN_IMAGE_SET_DEFAULT: "Set as default",
   MARKDOWN_IMAGE_SAVE_DEFAULT_ARIA:
     "Save current appearance settings as the default",
+  MARKDOWN_IMAGE_DEFAULT_SAVED: "Markdown image defaults saved",
   MARKDOWN_IMAGE_RENDER_NOW: "Render now",
   MARKDOWN_IMAGE_UPDATING: "Updating image…",
   MARKDOWN_IMAGE_EXTERNAL_SOURCE: "External Markdown source",
