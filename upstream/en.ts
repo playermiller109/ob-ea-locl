@@ -44,6 +44,41 @@ export default {
   CONVERT_FILE_KEEP_EXT: "*.excalidraw => *.excalidraw.md",
   CONVERT_FILE_REPLACE_EXT: "*.excalidraw => *.md (Logseq compatibility)",
   DOWNLOAD_LIBRARY: "Export stencil library as an *.excalidrawlib file",
+  LIBRARY_MIGRATION_TITLE: "Move your Excalidraw library into the vault",
+  LIBRARY_MIGRATION_DESC:
+    "Excalidraw can store your library in a dedicated vault file instead of data.json. This keeps plugin settings smaller and makes saving more stable. Your existing items will be merged into the selected local library file; downloaded *.excalidrawlib files placed in the same folder will also be loaded. Choose Later to hide this message until tomorrow.",
+  LIBRARY_MIGRATION_SYNC_WARNING:
+    'To sync library files with Obsidian Sync, enable "Sync all other types" in Obsidian Sync settings.',
+  LIBRARY_MIGRATION_KEEP_DATA_JSON: "Keep using data.json",
+  LIBRARY_MIGRATION_LATER: "Later",
+  LIBRARY_MIGRATION_MIGRATE: "Move library",
+  LIBRARY_MIGRATION_SUCCESS: "Excalidraw library moved into the vault.",
+  LIBRARY_MIGRATION_FAILED:
+    "The library could not be moved. Your original data.json library was kept unchanged.",
+  LIBRARY_FILE_READ_ERROR: "Could not read Excalidraw library file: {PATH}",
+  LIBRARY_STORAGE_NAME: "Library storage",
+  LIBRARY_STORAGE_DESC:
+    "Vault files provide more stable saving because the stencil library is kept out of data.json.",
+  LIBRARY_STORAGE_VAULT: "Vault folder (recommended)",
+  LIBRARY_STORAGE_DATA_JSON: "Plugin data.json (legacy)",
+  LIBRARY_FOLDER_NAME: "Library folder",
+  LIBRARY_FOLDER_DESC:
+    'Folder for local-library.excalidrawlib and downloaded library files. Library files use the .excalidrawlib extension. To see them in Obsidian\'s file explorer, enable "Show all file types" in Obsidian settings.',
+  LIBRARY_FILE_NAME: "Local library file name",
+  LIBRARY_FILE_DESC:
+    "Name of the editable local library file. The .excalidrawlib extension is added automatically.",
+  LIBRARY_MIGRATE_NOW: "Move library now",
+  LIBRARY_MIGRATE_NOW_DESC:
+    "Move the existing data.json library into the configured vault file.",
+  LIBRARY_PATH_MISSING: "This path does not currently exist in the vault.",
+  CREATE_FOLDER: "Create folder",
+  CREATE_FOLDER_CONFIRM: "Do you want to create the folder <b>{PATH}</b>?",
+  CREATE_FOLDER_NEVER_MIND: "Never mind",
+  CREATE_FOLDER_YES: "Yes",
+  CREATE_FOLDER_SUCCESS: "Created folder: {PATH}",
+  CREATE_FOLDER_FAILED: "Could not create folder: {PATH}",
+  CREATE_FOLDER_PATH_IS_FILE:
+    "The folder cannot be created because a file already exists at: {PATH}",
   OPEN_SIDEPANEL: "Open Excalidraw Sidepanel",
   OPEN_EXISTING_NEW_PANE: "Open existing drawing - IN A NEW PANE",
   OPEN_EXISTING_ACTIVE_PANE:
@@ -110,18 +145,16 @@ export default {
   MARKDOWN_IMAGE_CSS_DESC: "CSS rules applied only to this Markdown image.",
   MARKDOWN_IMAGE_CSS_IMPORTANT_HINT:
     "If a rule has no effect, add !important to the declaration.",
-  MARKDOWN_IMAGE_CSS_DESKTOP_HELP:
-    "To inspect the generated markup, open Developer Console ({shortcut}) and run the command available from the copy button.",
-  MARKDOWN_IMAGE_CSS_MOBILE_HELP:
-    "On desktop, you can inspect the generated markup in Developer Console and run the command available from the copy button.",
+  MARKDOWN_IMAGE_CSS_SVG_COPY_HINT:
+    "Use the copy button below to copy the generated SVG for inspection.",
   MARKDOWN_IMAGE_CSS_EDITOR_ARIA: "CSS editor for this Markdown image",
   MARKDOWN_IMAGE_TRANSCLUSION_CSS_EDITOR_ARIA:
     "CSS editor for transcluded Markdown",
   MARKDOWN_IMAGE_INSERT_CSS_BOILERPLATE:
     "Insert a commented CSS boilerplate",
-  MARKDOWN_IMAGE_COPY_CSS_COMMAND:
-    "Copy the generated Markdown SVG console command",
-  MARKDOWN_IMAGE_CSS_COMMAND_COPIED: "Console command copied",
+  MARKDOWN_IMAGE_COPY_SVG: "Copy the current Markdown image SVG",
+  MARKDOWN_IMAGE_SVG_COPIED: "Markdown image SVG copied",
+  MARKDOWN_IMAGE_SVG_COPY_ERROR: "Could not copy the Markdown image SVG",
   MARKDOWN_IMAGE_TRANSCLUSION_DIFFERENT_STYLE:
     "Use a different style for transclusions",
   MARKDOWN_IMAGE_TRANSCLUSION_DIFFERENT_STYLE_DESC:
@@ -176,6 +209,10 @@ export default {
     "A local Markdown image can contain only one level 1 heading when converted to an embeddable. It must be the first content and its name must be unique in the drawing.",
   MARKDOWN_IMAGE_SECTION_NAME: "Name the back-of-note section",
   MARKDOWN_IMAGE_SECTION_NAME_PLACEHOLDER: "Enter a unique section name",
+  MARKDOWN_IMAGE_DELETE_TEXT_PROMPT:
+    "Delete the Markdown text stored for this image? The image will be removed from the scene either way.",
+  MARKDOWN_IMAGE_KEEP_TEXT: "Keep Markdown text",
+  MARKDOWN_IMAGE_DELETE_TEXT: "Delete Markdown text",
   INSERT_PDF: "Insert PDF file from vault",
   INSERT_LAST_ACTIVE_PDF_PAGE_AS_IMAGE: "Insert last active PDF page as image",
   UNIVERSAL_ADD_FILE: "Insert ANY file",
