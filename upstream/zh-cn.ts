@@ -204,6 +204,15 @@ export default {
     "是否删除为此图像保存的 Markdown 文本？无论如何，该图像都会从场景中移除。",
   MARKDOWN_IMAGE_KEEP_TEXT: "保留 Markdown 文本",
   MARKDOWN_IMAGE_DELETE_TEXT: "删除 Markdown 文本",
+  MARKDOWN_IMAGE_REMEMBER_DELETE_CHOICE: "将此选择用于今后的删除操作",
+  MARKDOWN_IMAGE_REMEMBER_DELETE_CHOICE_DESC:
+    '在 Excalidraw 插件设置中，将“本地 Markdown 图像删除”重置为“每次询问”。',
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_NAME: "本地 Markdown 图像删除",
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_DESC:
+    "选择删除本地 Markdown 图像时是否同时删除其笔记背面的 Markdown 文本。",
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_ASK: "每次询问",
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_KEEP: "保留文本，不再询问",
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_DELETE: "删除文本，不再询问",
   INSERT_PDF: "以图像形式嵌入 PDF 到当前绘图中",
   INSERT_LAST_ACTIVE_PDF_PAGE_AS_IMAGE: "以图像形式嵌入最后激活的 PDF 页面",
   UNIVERSAL_ADD_FILE: "嵌入文件 / Insert ANY file",
@@ -261,6 +270,8 @@ export default {
   ERROR_CANT_READ_FILEPATH: "错误，无法读取文件路径。正在改为导入文件",
   NO_SEARCH_RESULT: "在绘图中未找到匹配的元素",
   FORCE_SAVE_ABORTED: "自动保存被中止，因为文件正在保存中",
+  DRAWING_RELOAD_FAILED:
+    "Excalidraw 拒绝了无效的传入绘图数据。当前画布上打开的绘图已保留。请在关闭此视图前保存或导出它，并检查同步文件或其版本历史记录。",
   LINKLIST_SECOND_ORDER_LINK: "二级链接",
   MARKDOWN_EMBED_CUSTOMIZE_LINK_PROMPT_TITLE: "自定义嵌入文件链接",
   MARKDOWN_EMBED_CUSTOMIZE_LINK_PROMPT:
@@ -1060,14 +1071,14 @@ export default {
     "选择导出图像的背景和主题，以及预览是否跟随 Obsidian 主题。",
   EMBED_IMAGE_CACHE_NAME: "为嵌入到 Markdown 文档中的绘图创建预览图缓存",
   EMBED_IMAGE_CACHE_DESC:
-    "可提高下次嵌入的速度。" +
-    "但如果绘图包含子绘图，（当子绘图改变时）预览图不会更新，直到您打开绘图并手动保存。",
+    "缓存用于嵌入 Markdown 的图像。绘图或其嵌套的仓库文件依赖发生变化时，缓存的绘图会刷新。",
   SCENE_IMAGE_CACHE_NAME: "缓存场景中嵌套的绘图",
   SCENE_IMAGE_CACHE_DESC:
-    "Excalidraw 将智能地尝试识别嵌套的绘图的子元素是否发生变化，并更新缓存。" +
+    "Excalidraw 会识别嵌套绘图及其嵌入仓库文件源的变化，并相应更新缓存。" +
     "这将加快渲染过程，特别是在您的场景中有深度嵌套的绘图时。<br>" +
     "如果您怀疑缓存未能正确更新，您可能需要关闭此功能。",
   EMBED_IMAGE_CACHE_CLEAR: "清除缓存",
+  REFRESH_SCENE_IMAGES: "刷新当前绘图中的选定图像或所有图像",
   BACKUP_CACHE_CLEAR: "清除备份",
   BACKUP_CACHE_CLEAR_CONFIRMATION:
     "该操作将删除所有绘图文件的备份。备份是绘图文件损坏时的一种补救手段。每次您打开 Obsidian 时，本插件会自动清理无用的备份。您确定要现在删除所有备份吗？",

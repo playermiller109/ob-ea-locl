@@ -233,6 +233,16 @@ export default {
     "Delete the Markdown text stored for this image? The image will be removed from the scene either way.",
   MARKDOWN_IMAGE_KEEP_TEXT: "Keep Markdown text",
   MARKDOWN_IMAGE_DELETE_TEXT: "Delete Markdown text",
+  MARKDOWN_IMAGE_REMEMBER_DELETE_CHOICE:
+    "Use this choice for future deletions",
+  MARKDOWN_IMAGE_REMEMBER_DELETE_CHOICE_DESC:
+    'Reset “Local Markdown image deletion” to “Ask every time” in the Excalidraw plugin settings.',
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_NAME: "Local Markdown image deletion",
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_DESC:
+    "Choose whether deleting a local Markdown image also deletes its back-of-note Markdown text.",
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_ASK: "Ask every time",
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_KEEP: "Keep text without asking",
+  MARKDOWN_IMAGE_DELETE_BEHAVIOR_DELETE: "Delete text without asking",
   INSERT_PDF: "Insert PDF file from vault",
   INSERT_LAST_ACTIVE_PDF_PAGE_AS_IMAGE: "Insert last active PDF page as image",
   UNIVERSAL_ADD_FILE: "Insert ANY file",
@@ -1153,14 +1163,15 @@ export default {
     "Choose exported-image background and theme behavior and whether previews follow Obsidian's theme.",
   EMBED_IMAGE_CACHE_NAME: "Cache images for embedding in markdown",
   EMBED_IMAGE_CACHE_DESC:
-    "Cache images for embedding in markdown. This will speed up the embedding process, but in case you compose images of several sub-component drawings, " +
-    "the embedded image in Markdown won't update until you open the drawing and save it to trigger an update of the cache.",
+    "Cache images for embedding in markdown. Cached drawings are refreshed when the drawing or one of its nested vault-file dependencies changes.",
   SCENE_IMAGE_CACHE_NAME: "Cache nested Excalidraws in Scene",
   SCENE_IMAGE_CACHE_DESC:
     "Cache nested Excalidraws in the Scene for faster scene rendering. This will speed up the rendering process, especially if you have deeply nested Excalidraws in your scene. " +
-    "Excalidraw will try to intelligently identify if any children of a nested Excalidraw have changed and will update the cache accordingly. " +
+    "Excalidraw will identify changes to nested drawings and their embedded vault-file sources and update the cache accordingly. " +
     "You may want to turn this off, in case you are suspecting that the cache is not updating properly.",
   EMBED_IMAGE_CACHE_CLEAR: "Purge Cache",
+  REFRESH_SCENE_IMAGES:
+    "Refresh selected image or all images in the current drawing",
   BACKUP_CACHE_CLEAR: "Purge Backups",
   BACKUP_CACHE_CLEAR_CONFIRMATION:
     "This action will delete all Excalidraw drawing backups. Backups are used as a safety measure in case your drawing file gets damaged. Each time you open Obsidian the plugin automatically deletes backups for files that no longer exist in your Vault. Are you sure you want to clear all backups?",
